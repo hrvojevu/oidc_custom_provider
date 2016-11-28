@@ -1,4 +1,4 @@
-Assessment Factory XBlock
+OIDC Custom provider
 =======================
 
 Installation
@@ -7,11 +7,13 @@ Installation
 Installation is modular. Install using pip, from this repository:
 
 ```bash
-$ pip install git+https://github.com/hrvojevu/custom_oidc_provider
+$ pip install git+https://github.com/hrvojevu/oidc_custom_provider
 ```
-After installing, add this provider to AUTHENTICATION_BACKENDS inside /edx-platform/lms/envs/aws.py:
+After installing, import this package and add this provider to AUTHENTICATION_BACKENDS inside /edx-platform/lms/envs/aws.py:
 
 ```bash
+import oidc_custom_provider
+
 AUTHENTICATION_BACKENDS = (
     ENV_TOKENS.get('THIRD_PARTY_AUTH_BACKENDS', [
         'social.backends.google.GoogleOAuth2',
@@ -20,7 +22,7 @@ AUTHENTICATION_BACKENDS = (
         'social.backends.azuread.AzureADOAuth2',
         'third_party_auth.saml.SAMLAuthBackend',
         'third_party_auth.lti.LTIAuthBackend',
-        'third_party_auth.custom_google_provider.CustomGoogleOAuth2',
+        'oidc_custom_provider.provider.CustomOAuth2',
     ]) + list(AUTHENTICATION_BACKENDS)
 )
 ```
