@@ -77,7 +77,8 @@ class CustomOAuth2(BaseOAuth2API, BaseOAuth2):
         ('refresh_token', 'refresh_token', True),
         ('expires_in', 'expires'),
         ('token_type', 'token_type', True),
-        ('prompt', 'consent')
+        ('prompt', 'consent'),
+	('id_token', 'id_token')
     ]
     SSL_PROTOCOL = ssl.PROTOCOL_TLSv1
 
