@@ -2,6 +2,8 @@ from social.backends.oauth import BaseOAuth2
 import logging
 import ssl
 import base64
+import re
+
 
 class BaseOIDCAuth(object):
     def get_user_id(self, details, response):
